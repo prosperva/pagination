@@ -26,11 +26,7 @@ $(function(){
     let setPages = function(isForward) {
         var arr = [];
         $('.pageNum').each(function(){
-            if(isForward){
-            arr.push($(this).data('pagenum') + 1);
-            } else {
-                arr.push($(this).data('pagenum') - 1);
-            }
+            (isForward) ? arr.push($(this).data('pagenum') + 1) : arr.push($(this).data('pagenum') - 1);
         });
         currentPageArray = arr;
         return currentPageArray;
