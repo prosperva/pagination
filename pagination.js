@@ -3,18 +3,21 @@ $(function(){
     totalPageCount = 20;
     defaultNumOfPages = 5;
     currentPageArray = [];
-    paginationElem = $(".pagination");
-    totalRecordElem = $(".totalPageCount");
+    let paginationElem = $(".pagination");
+    let totalRecordElem = $(".totalPageCount");
+    let back = "<";
+    let forward = ">";
+    let last = ">>";
+    let first = "<<";
     
     let drawPagination = function(arr, highlightPage) {
-        var pagination = '<ul><li><a href="#" class="back"><</a></li><li><a href="#" class="first"><<</a></li>';
-        
+        var pagination = '<ul><li><a href="#" class="back">' + back + '</a></li><li><a href="#" class="first">' + first + '</a></li>';
         for (var i = 0; i < arr.length; i++) {
             pagination += '<li class="page"><a href="#" class="pageNum" data-pageNum ="' + arr[i] + '">' 
                 + arr[i] + '</a></li>';
         }
-        pagination += '<li><a href="#" class="forward">></a></li>';
-        pagination += '<li><a href="#" class="last">>></a></li></ul>';
+        pagination += '<li><a href="#" class="forward">' + forward + '</a></li>';
+        pagination += '<li><a href="#" class="last">' + last + '</a></li></ul>';
 
         $('.pagination').html(pagination);
         $('li').removeClass('selectedPage');
